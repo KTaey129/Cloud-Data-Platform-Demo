@@ -1,8 +1,25 @@
 {
+"name": "Cloud Data Platform Environment",
 "image": "https://www.google.com/search?q=mcr.microsoft.com/devcontainers/universal:latest",
 "features": {
-"ghcr.io/devcontainers/features/docker-in-docker:2": {},
-"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {}
+"ghcr.io/devcontainers/features/docker-in-docker:2": {
+"version": "latest"
 },
-"remoteUser": "root"
+"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+"version": "latest",
+"minikubeVersion": "latest",
+"helmVersion": "latest",
+"kubectlVersion": "latest"
+}
+},
+"customizations": {
+"vscode": {
+"extensions": [
+"ms-azuretools.vscode-docker",
+"ms-kubernetes-tools.vscode-kubernetes-tools"
+]
+}
+},
+"postCreateCommand": "sudo chown -R vscode:vscode /workspaces/Cloud-Data-Platform-Demo && minikube start --driver=docker",
+"remoteUser": "vscode"
 }
